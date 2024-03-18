@@ -4,7 +4,7 @@ import './SearchResult.css';
 const SearchResult = ({ students }) => {
   return (
     <div className="search-result">
-      <h2>Search Results</h2>
+      <h2 style={{marginLeft:"20px"}}>Search Results</h2>
       {students && students.length > 0 ? ( // Check if students array is not empty
         <div>
           {students.map((student, index) => (

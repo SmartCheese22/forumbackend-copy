@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import SearchForm from './SearchForm';
 import SearchResult from './SearchResult';
+import SearchImage from './images/11000.png'
+import "./search.css";
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -21,7 +23,16 @@ const Search = () => {
 
   return (
     <div>
-      <h1>College Search</h1>
+      <div className="up">
+          <div className="home-main-text">
+              <h1>College Search</h1>
+          </div>
+          <div className="image-container">
+              <img src={SearchImage} className="home_img" alt="" />
+          </div>
+      </div>
+      <div>
+      </div>
       <SearchForm onSearch={handleSearch} />
       <SearchResult students={searchResults} />
     </div>

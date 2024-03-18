@@ -26,7 +26,7 @@ const SearchForm = ({ onSearch }) => {
     'IIT Mandi'
   ];
 
-  const branchOptions = ['CSE', 'EE', 'ME', 'CE', 'CHE', 'PHY','CHM', 'AE', 'BSBE'];
+  const branchOptions = ['CSE', 'EE', 'ME', 'AE', 'MSE', 'BSBE', 'MTH', 'PHY', 'CHM', 'CHE'];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ const SearchForm = ({ onSearch }) => {
     <form onSubmit={handleSubmit} className="search-form">
       <div className="input-group">
         <select
-          className="form-control"
+          className="form-control1"
           value={college}
           onChange={(e) => setCollege(e.target.value)}
         >
@@ -49,7 +49,7 @@ const SearchForm = ({ onSearch }) => {
           ))}
         </select>
         <select
-          className="form-control"
+          className="form-control2"
           value={major}
           onChange={(e) => setMajor(e.target.value)}
         >
@@ -60,10 +60,9 @@ const SearchForm = ({ onSearch }) => {
             </option>
           ))}
         </select>
-        <Button variant="primary" type="submit" className="search-btn">
-          <BsSearch />
-          Search
-        </Button>
+      </div>
+      <div className="search">
+        <Button type="submit">Search</Button>
       </div>
     </form>
   );

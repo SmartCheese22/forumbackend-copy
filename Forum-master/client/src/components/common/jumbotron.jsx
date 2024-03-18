@@ -1,5 +1,5 @@
 import React from "react";
-
+import forumImage from "../images/forum.png";
 const Jumotron = () => {
   const jumbotronStyle = {
     backgroundColor: "rgb(160, 199, 199)",
@@ -20,9 +20,10 @@ const Jumotron = () => {
 
   return (
     <div className="jumbotron" style={jumbotronStyle}>
-      <h1 className="display-3" style={headingStyle}>
-        Forum
-      </h1>
+      <div className="image-container">
+  <img src={forumImage} className="home_img" alt="" style={{ maxWidth: '700px', maxHeight: '350px' }} />
+</div>
+
       <p style={paragraphStyle}>
         Join the Discussion, Share Your Insights, and Connect with the Community!
       </p>

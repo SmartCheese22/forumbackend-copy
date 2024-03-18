@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './CollegeCompare.css';
+import ReactMarkdown from 'react-markdown';
 
 
 const CollegeCompare = () => {
@@ -14,16 +15,43 @@ const CollegeCompare = () => {
 
   // Predefined options for colleges and branches
   const collegeOptions = [
-      { label: 'IIT Kanpur', value: 'IIT Kanpur' },
-      { label: 'IIT Bombay', value: 'IIT Bombay' },
-      { label: 'IIT Delhi', value: 'IIT Delhi' },
-      { label: 'IIT Madras', value: 'IIT Madras' }
+    { label: 'IIT Kanpur', value: 'IIT Kanpur' },
+    { label: 'IIT Bombay', value: 'IIT Bombay' },
+    { label: 'IIT Delhi', value: 'IIT Delhi' },
+    { label: 'IIT Madras', value: 'IIT Madras' },
+    { label: 'IIT Kharagpur', value: 'IIT Kharagpur' },
+    { label: 'IIT Roorkee', value: 'IIT Roorkee' },
+    { label: 'IIT Guwahati', value: 'IIT Guwahati' },
+    { label: 'IIT Hyderabad', value: 'IIT Hyderabad' },
+    { label: 'IIT Gandhinagar', value: 'IIT Gandhinagar' },
+    { label: 'IIT Ropar', value: 'IIT Ropar' },
+    { label: 'IIT Bhubaneswar', value: 'IIT Bhubaneswar' },
+    { label: 'IIT Indore', value: 'IIT Indore' },
+    { label: 'IIT Patna', value: 'IIT Patna' },
+    { label: 'IIT Mandi', value: 'IIT Mandi' },
+    { label: 'IIT (BHU) Varanasi', value: 'IIT (BHU) Varanasi' },
+    { label: 'IIT Palakkad', value: 'IIT Palakkad' },
+    { label: 'IIT Tirupati', value: 'IIT Tirupati' },
+    { label: 'IIT Dhanbad', value: 'IIT Dhanbad' },
+    { label: 'IIT Bhilai', value: 'IIT Bhilai' },
+    { label: 'IIT Goa', value: 'IIT Goa' },
+    { label: 'IIT Jammu', value: 'IIT Jammu' },
+    { label: 'IIT Dharwad', value: 'IIT Dharwad' },
   ];
+  
   const branchOptions = [
-      { label: 'CSE', value: 'CSE' },
-      { label: 'EE', value: 'EE' },
-      { label: 'ME', value: 'ME' }
+    { label: 'CSE', value: 'CSE' },
+    { label: 'EE', value: 'EE' },
+    { label: 'ME', value: 'ME' },
+    { label: 'BSBE', value: 'BSBE' },
+    { label: 'MTH', value: 'MTH' },
+    { label: 'PHY', value: 'PHY' },
+    { label: 'CHM', value: 'CHM' },
+    { label: 'CHE', value: 'CHE' },
+    { label: 'AE', value: 'AE' },
+    { label: 'MSE', value: 'MSE' },
   ];
+  
 
   const handleSubmit = async (e) => {
       e.preventDefault();
@@ -124,8 +152,8 @@ const CollegeCompare = () => {
                 </tr>
                 <tr>
                   <td> Description</td>
-                  <td>{collegeData.college1.description}</td>
-                  <td>{collegeData.college2.description}</td>
+                  <td><ReactMarkdown>{collegeData.college1.description}</ReactMarkdown></td>
+                  <td><ReactMarkdown>{collegeData.college2.description}</ReactMarkdown></td>
                 </tr>
                 <tr>
                   <td>NIRF Ranking</td>

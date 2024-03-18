@@ -66,6 +66,22 @@ function ProfileDataSection({ user }) {
           <p className="profile-data-values">{user.email}</p>
         </div>
       </div>
+      <div className="professional_details">
+        <div>
+          <p className="profile_data_rows">College</p>
+        </div>
+        <div style={{ marginBottom: "5px" }}>
+          <p className="profile-data-values">{user.college}</p>
+        </div>
+      </div>
+      <div className="professional_details">
+        <div>
+          <p className="profile_data_rows">Branch</p>
+        </div>
+        <div>
+          <p className="profile-data-values">{user.branch}</p>
+        </div>
+      </div>
     </div>
   );
 }
