@@ -31,6 +31,16 @@ const NavBar = ({ user }) => {
               Dashboard
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link ml-2" to="users/search">
+              Search
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link ml-2" to="users/compare">
+              Compare
+            </NavLink>
+          </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
           {!user && (
