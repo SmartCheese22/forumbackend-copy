@@ -26,7 +26,7 @@ const SearchForm = ({ onSearch }) => {
     'IIT Mandi'
   ];
 
-  const branchOptions = ['CSE', 'EE', 'ME'];
+  const branchOptions = ['CSE', 'EE', 'ME', 'CE', 'CHE', 'PHY','CHM', 'AE', 'BSBE'];
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -179,9 +179,9 @@ function Footer(){
                 <div class="footer-col">
                     <h4>COLLEGE</h4>
                     <ul>
-                        <li><a href="#">IITs</a></li>
-                        <li><a href="#">NITs</a></li>
-                        <li><a href="#">Other Colleges</a></li>
+                        <li><Link to="/users/search">IITs</Link></li>
+                        <li><Link to="/users/search">NITs</Link></li>
+                        <li><Link to="/users/search">Other Colleges</Link></li>
                     </ul>
                 </div>
                 <div class="footer-col">

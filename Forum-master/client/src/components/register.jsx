@@ -175,6 +175,8 @@ class Register extends Form {
                     <option value="PHY">PHY</option>
                     <option value="CHM">CHM</option>
                     <option value="CHE">CHE</option>
+                    <option value="AE">CHE</option>
+                    <option value="MSE">CHE</option>
                   </select>
 
                   <Input
@@ -187,7 +189,7 @@ class Register extends Form {
                   <Input
                     value={data.AcademicOpinion}
                     onChange={this.handleChange}
-                    label="Academic Opinion"
+                    label="Enter your Opinion about Academics of your College"
                     type="text"
                     name="AcademicOpinion"
                     error={errors.AcademicOpinion}
@@ -195,7 +197,7 @@ class Register extends Form {
                   <Input
                     value={data.NonAcademicOpinion}
                     onChange={this.handleChange}
-                    label="Non-Academic Opinion"
+                    label="Enter your Opinion about Non-Academics of your College"
                     type="text"
                     name="NonAcademicOpinion"
                     error={errors.NonAcademicOpinion}
@@ -203,7 +205,7 @@ class Register extends Form {
                   <Input
                     value={data.PlacementOpinion}
                     onChange={this.handleChange}
-                    label="Placement Opinion"
+                    label="Enter your Opinion about Placements of your College"
                     type="text"
                     name="PlacementOpinion"
                     error={errors.PlacementOpinion}
@@ -211,7 +213,7 @@ class Register extends Form {
                   <Input
                     value={data.OverallOpinion}
                     onChange={this.handleChange}
-                    label="Overall Opinion"
+                    label="Enter your Overall Opinion about your College"
                     type="text"
                     name="OverallOpinion"
                     error={errors.OverallOpinion}
