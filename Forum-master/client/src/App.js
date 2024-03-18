@@ -19,7 +19,8 @@ import Search from "./components/search.jsx";
 import CollegeCompare from "./components/CollegeCompare.jsx";
 import Home from "./components/Home.jsx";
 import Profile from "./components/Profile.jsx";
-import CollegePredictor from "./components/collegePredictor.jsx";
+import CollegePedictor from "./components/collegePredictor";
+
 class App extends Component {
   state = {};
   async componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
       this.setState({ user: user.data });
     } catch (ex) { }
   }
+
   render() {
     return (
       <div>
@@ -42,7 +44,11 @@ class App extends Component {
           <Route path="/users/logout" component={Logout} />
           <Route path="/users/search" component={Search} />
           <Route path="/users/compare" component={CollegeCompare} />
-          <Route path="/users/collegepredictor" component={CollegePredictor} />
+          <Route path="/users/collegepredictor" component={CollegePedictor} />
+          <Route
+            path="/profile"
+            render={(props) => this.state.user ? <Profile {...props} user={this.state.user} /> : <Redirect to="/users/login" />}
+          />
           <Route
             path="/dashboard"
             render={(props) => <Dashboard {...props} user={this.state.user} />}
