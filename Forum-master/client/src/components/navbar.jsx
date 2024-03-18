@@ -5,7 +5,7 @@ const NavBar = ({ user }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark  sticky-top ">
       <NavLink className="navbar-brand" to="/">
-        Community
+        College Pathfinder
       </NavLink>
       <button
         class="navbar-toggler"
@@ -28,16 +28,16 @@ const NavBar = ({ user }) => {
           </li>
           <li className="nav-item">
             <NavLink className="nav-link ml-2" to="/dashboard">
-              Dashboard
+              Forum
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link ml-2" to="users/search">
+            <NavLink className="nav-link ml-2" to="/users/search">
               Search
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link ml-2" to="users/compare">
+            <NavLink className="nav-link ml-2" to="/users/compare">
               Compare
             </NavLink>
           </li>

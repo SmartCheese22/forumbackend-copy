@@ -15,7 +15,9 @@ import Register from "./components/register";
 import NavBar from "./components/navbar";
 import ProtectedRoute from "./components/common/protectedRoute";
 import PostPage from "./components/PostPage";
-
+import Search from "./components/search.jsx";
+import CollegeCompare from "./components/CollegeCompare.jsx";
+import Home from "./components/Home.jsx";
 class App extends Component {
   state = {};
   async componentDidMount() {
@@ -24,7 +26,7 @@ class App extends Component {
       const user_jwt = jwtDecode(jwt);
       const user = await http.get(`${api.usersEndPoint}${user_jwt._id}`);
       this.setState({ user: user.data });
-    } catch (ex) {}
+    } catch (ex) { }
   }
   render() {
     return (
@@ -36,6 +38,8 @@ class App extends Component {
           <Route path="/users/login" component={Log} />
           <Route path="/users/register" component={Register} />
           <Route path="/users/logout" component={Logout} />
+          <Route path="/users/search" component={Search} />
+          <Route path="/users/compare" component={CollegeCompare} />
           <Route
             path="/dashboard"
             render={(props) => <Dashboard {...props} user={this.state.user} />}
@@ -49,7 +53,11 @@ class App extends Component {
             path="/post/:id"
             render={(props) => <PostPage {...props} user={this.state.user} />}
           />
-          <Route exact path="/" component={Jumotron} />
+          {/* <Route
+            path="/me"
+            render={(props) => <Profile {...props} user={this.state.user} />}
+          /> */}
+          <Route exact path="/" component={Home} />
           <Redirect from="/users" to="/users/login " />
           <Redirect to="/not-found" />
         </Switch>

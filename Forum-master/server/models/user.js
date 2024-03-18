@@ -35,10 +35,10 @@ const userSchema = new mongoose.Schema({
     enum: ['collegeS', 'collegeG'],
     required: true, // User type is required during registration
   },
-  AcadmicOpinion: {
+  AcademicOpinion: {
     type: String,
   },
-  NonAcadmicOpinion: {
+  NonAcademicOpinion: {
     type: String,
   },
   PlacementOpinion: {

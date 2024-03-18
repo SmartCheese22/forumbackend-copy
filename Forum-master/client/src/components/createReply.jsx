@@ -3,7 +3,7 @@ import Joi from "joi-browser";
 import {ToastContainer } from "react-toastify";
 import Form from "./common/form";
 import { createreply } from "../services/replyCreateService";
-import { Redirect } from "react-router-dom";
+
 
 class PostReply extends Form {
   state = {
@@ -12,9 +12,9 @@ class PostReply extends Form {
     },
     errors: { comment: "" },
   };
-  schema = { 
-    comment: Joi.string().required().min(5).label("Comment"),
-  };
+  // schema = { 
+  //   comment: Joi.string().required().min(5).label("Comment"),
+  // };
   doSubmit = async () => {
     try {
       const { data } = this.state;
@@ -40,13 +40,13 @@ class PostReply extends Form {
                 type="comment"
                 id="comment"
               />
-              {errors.description && (
+              {/* {errors.description && (
                 <div className="alert-info">{errors.description}</div>
-              )}
+              )} */}
               <div className="text-center">
                 <button
                   className="btn btn-primary mt-4"
-                  disabled={this.validate()}
+                  // disabled={this.validate()}
                 >
                   Post Reply
                 </button>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import ReactMarkdown from 'react-markdown';
 
 const CollegeCompare = () => {
     const [college1, setCollege1] = useState('');
@@ -18,10 +17,11 @@ const CollegeCompare = () => {
           params: { college1, college2 },
         });
         setCollegeData(collegeResponse.data);
-
+    
         const userOpinionResponse = await axios.get('http://localhost:5000/users/opinion', {
           params: { college1, college2, branch1, branch2 },
         });
+    
         setUserOpinions(userOpinionResponse.data);
       } catch (error) {
         console.error(error);
@@ -64,7 +64,7 @@ const CollegeCompare = () => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Branch"
+                placeholder="Branch 1"
                 value={branch1}
                 onChange={(e) => setBranch1(e.target.value)}
               />
@@ -73,7 +73,7 @@ const CollegeCompare = () => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Branch"
+                placeholder="Branch 2"
                 value={branch2}
                 onChange={(e) => setBranch2(e.target.value)}
               />
@@ -121,13 +121,14 @@ const CollegeCompare = () => {
                       <div key={index} className="card mb-3">
                         <div className="card-header" style={{ backgroundColor: 'rgb(139, 178, 178)', color: 'white' }}>{user.name}</div>
                         <div className="card-body">
-                          {user.opinion.map((opinion, opinionIndex) => (
-                            <React.Fragment key={opinionIndex}>
-                              <h5 className="card-title">{opinionTitles[opinionIndex]}</h5>
-                              <p className="card-text">{opinion}</p>
-                            </React.Fragment>
-                          ))}
-                          {user.opinion.length === 0 && <p className="card-text">No opinions available</p>}
+                          <h5 className="card-title">Academic Opinion</h5>
+                          <p className="card-text">{user.AcademicOpinion || 'No opinion available'}</p>
+                          <h5 className="card-title">Non-Academic Opinion</h5>
+                          <p className="card-text">{user.NonAcademicOpinion || 'No opinion available'}</p>
+                          <h5 className="card-title">Placement Opinion</h5>
+                          <p className="card-text">{user.PlacementOpinion || 'No opinion available'}</p>
+                          <h5 className="card-title">Overall Opinion</h5>
+                          <p className="card-text">{user.OverallOpinion || 'No opinion available'}</p>
                         </div>
                       </div>
                     ))}
@@ -137,13 +138,14 @@ const CollegeCompare = () => {
                       <div key={index} className="card mb-3">
                         <div className="card-header" style={{ backgroundColor: 'rgb(139, 178, 178)', color: 'white' }}>{user.name}</div>
                         <div className="card-body">
-                          {user.opinion.map((opinion, opinionIndex) => (
-                            <React.Fragment key={opinionIndex}>
-                              <h5 className="card-title">{opinionTitles[opinionIndex]}</h5>
-                              <p className="card-text">{opinion}</p>
-                            </React.Fragment>
-                          ))}
-                          {user.opinion.length === 0 && <p className="card-text">No opinions available</p>}
+                          <h5 className="card-title">Academic Opinion</h5>
+                          <p className="card-text">{user.AcademicOpinion || 'No opinion available'}</p>
+                          <h5 className="card-title">Non-Academic Opinion</h5>
+                          <p className="card-text">{user.NonAcademicOpinion || 'No opinion available'}</p>
+                          <h5 className="card-title">Placement Opinion</h5>
+                          <p className="card-text">{user.PlacementOpinion || 'No opinion available'}</p>
+                          <h5 className="card-title">Overall Opinion</h5>
+                          <p className="card-text">{user.OverallOpinion || 'No opinion available'}</p>
                         </div>
                       </div>
                     ))}
