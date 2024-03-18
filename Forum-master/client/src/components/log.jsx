@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
-import Joi from "joi-browser";
 import { ToastContainer, toast } from "react-toastify";
 import "../App.css";
 import Input from "../components/common/input";
 import Form from "./common/form";
 import { login } from "../services/authService";
+import './log.css'
 
 // use programmatic navigation form login form to dashboard
 
@@ -18,15 +18,11 @@ class Log extends Form {
       passowrd: "",
     },
   };
-  // schema = {
-  //   email: Joi.string().required().label("Email ID"),
-  //   password: Joi.string().required().label("Password"),
-  // };
+
   doSubmit = async () => {
     // call the server;
     try {
       const { data } = this.state;
-      //console.log(data.email);
       const { data: jwt } = await login(data.email, data.password);
       localStorage.setItem("token", jwt);
       const { state } = this.props.location;
@@ -37,13 +33,14 @@ class Log extends Form {
       }
     }
   };
+
   render() {
     if (localStorage.getItem("token")) {
       return <Redirect to="/dashboard" />;
     }
     const { data, errors } = this.state;
     return (
-      <div>
+      <div className="login-container">
         <div className="container col-lg-3 col-md-6 border rounded mt-3">
           <h1 className="p-3">Login</h1>
 
@@ -66,7 +63,6 @@ class Log extends Form {
             <div className="text-center">
               <button
                 className="btn btn-primary m-3"
-                // disabled={this.validate()}
               >
                 Login
               </button>

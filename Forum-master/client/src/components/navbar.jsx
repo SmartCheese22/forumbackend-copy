@@ -3,77 +3,77 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = ({ user }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark  sticky-top ">
-      <NavLink className="navbar-brand" to="/">
-        College Pathfinder
-      </NavLink>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: 'rgb(100, 130, 130)' }}>
+  <NavLink className="navbar-brand" to="/">
+    College Pathfinder
+  </NavLink>
+  <button
+    className="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span className="navbar-toggler-icon"></span>
+  </button>
 
-      <div className="collapse navbar-collapse row" id="navbarColor03">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <NavLink className="nav-link ml-3" to="/">
-              Home
+  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/" activeClassName="active">
+          Home
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/dashboard" activeClassName="active">
+          Forum
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/users/search" activeClassName="active">
+          Search
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/users/compare" activeClassName="active">
+          Compare
+        </NavLink>
+      </li>
+    </ul>
+    <ul className="navbar-nav ml-auto">
+      {!user ? (
+        <>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/users/login">
+              Login
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link ml-2" to="/dashboard">
-              Forum
+            <NavLink className="nav-link" to="/users/register">
+              Register
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/me">
+              Hi {user.username}
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link ml-2" to="/users/search">
-              Search
+            <NavLink className="nav-link" to="/users/logout">
+              Logout
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link ml-2" to="/users/compare">
-              Compare
-            </NavLink>
-          </li>
-        </ul>
-        <ul className="nav navbar-nav navbar-right">
-          {!user && (
-            <React.Fragment>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/users/login">
-                  Login
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/users/register">
-                  Register
-                </NavLink>
-              </li>
-            </React.Fragment>
-          )}
-          {user && (
-            <React.Fragment>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/me">
-                  Hi {user.username}
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/users/logout">
-                  LogOut
-                </NavLink>
-              </li>
-            </React.Fragment>
-          )}
-        </ul>
-      </div>
-    </nav>
+        </>
+      )}
+    </ul>
+  </div>
+</nav>
+
   );
 };
 

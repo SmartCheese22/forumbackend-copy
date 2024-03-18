@@ -1,88 +1,111 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './CollegeCompare.css';
+
 
 const CollegeCompare = () => {
-    const [college1, setCollege1] = useState('');
-    const [college2, setCollege2] = useState('');
-    const [branch1, setBranch1] = useState('');
-    const [branch2, setBranch2] = useState('');
-    const [collegeData, setCollegeData] = useState({});
-    const [userOpinions, setUserOpinions] = useState({ user1: [], user2: [] });
+  const [college1, setCollege1] = useState('');
+  const [college2, setCollege2] = useState('');
+  const [branch1, setBranch1] = useState('');
+  const [branch2, setBranch2] = useState('');
+  const [collegeData, setCollegeData] = useState({});
+  const [userOpinions, setUserOpinions] = useState({ user1: [], user2: [] });
 
-    const handleSubmit = async (e) => {
+  // Predefined options for colleges and branches
+  const collegeOptions = [
+      { label: 'IIT Kanpur', value: 'IIT Kanpur' },
+      { label: 'IIT Bombay', value: 'IIT Bombay' },
+      { label: 'IIT Delhi', value: 'IIT Delhi' },
+      { label: 'IIT Madras', value: 'IIT Madras' }
+  ];
+  const branchOptions = [
+      { label: 'CSE', value: 'CSE' },
+      { label: 'EE', value: 'EE' },
+      { label: 'ME', value: 'ME' }
+  ];
+
+  const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const collegeResponse = await axios.get('http://localhost:5000/users/compare', {
-          params: { college1, college2 },
-        });
-        setCollegeData(collegeResponse.data);
-    
-        const userOpinionResponse = await axios.get('http://localhost:5000/users/opinion', {
-          params: { college1, college2, branch1, branch2 },
-        });
-    
-        setUserOpinions(userOpinionResponse.data);
+          const collegeResponse = await axios.get('http://localhost:5000/users/compare', {
+              params: { college1, college2 },
+          });
+          setCollegeData(collegeResponse.data);
+
+          const userOpinionResponse = await axios.get('http://localhost:5000/users/opinion', {
+              params: { college1, college2, branch1, branch2 },
+          });
+
+          setUserOpinions(userOpinionResponse.data);
       } catch (error) {
-        console.error(error);
+          console.error(error);
       }
-    };
+  };
 
-    useEffect(() => {
+  useEffect(() => {
       return () => {
-        setCollegeData({});
-        setUserOpinions({ user1: [], user2: [] });
+          setCollegeData({});
+          setUserOpinions({ user1: [], user2: [] });
       };
-    }, []);
+  }, []);
 
-    const opinionTitles = ["Academic Opinion", "Non-Academic Opinion", "Placement Opinion", "Overall Opinion"];
+  const opinionTitles = ["Academic Opinion", "Non-Academic Opinion", "Placement Opinion", "Overall Opinion"];
 
-    return (
+  return (
       <div className="container-fluid" style={{ backgroundColor: '#3F5757', minHeight: '100vh' }}>
-        <h2 className="mt-4 mb-4 text-white">College Comparison</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="row mb-3">
-            <div className="col">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="College 1"
-                value={college1}
-                onChange={(e) => setCollege1(e.target.value)}
-              />
-            </div>
-            <div className="col">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="College 2"
-                value={college2}
-                onChange={(e) => setCollege2(e.target.value)}
-              />
-            </div>
-            <div className="col">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Branch 1"
-                value={branch1}
-                onChange={(e) => setBranch1(e.target.value)}
-              />
-            </div>
-            <div className="col">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Branch 2"
-                value={branch2}
-                onChange={(e) => setBranch2(e.target.value)}
-              />
-            </div>
-            <div className="col-auto">
-              <button type="submit" className="btn btn-primary">Compare</button>
-            </div>
-          </div>
-        </form>
+          <h2 className="mt-4 mb-4 text-white">College Comparison</h2>
+          <form onSubmit={handleSubmit}>
+              <div className="row mb-3">
+                  <div className="col-md-6">
+                      <select
+                          className="form-control"
+                          value={college1}
+                          onChange={(e) => setCollege1(e.target.value)}
+                      >
+                          <option value="">Select College 1</option>
+                          {collegeOptions.map((option) => (
+                              <option key={option.value} value={option.value}>{option.label}</option>
+                          ))}
+                      </select>
+                      <select
+                          className="form-control mt-3"
+                          value={branch1}
+                          onChange={(e) => setBranch1(e.target.value)}
+                      >
+                          <option value="">Select Branch 1</option>
+                          {branchOptions.map((option) => (
+                              <option key={option.value} value={option.value}>{option.label}</option>
+                          ))}
+                      </select>
+                  </div>
+                  <div className="col-md-6">
+                      <select
+                          className="form-control"
+                          value={college2}
+                          onChange={(e) => setCollege2(e.target.value)}
+                      >
+                          <option value="">Select College 2</option>
+                          {collegeOptions.map((option) => (
+                              <option key={option.value} value={option.value}>{option.label}</option>
+                          ))}
+                      </select>
+                      <select
+                          className="form-control mt-3"
+                          value={branch2}
+                          onChange={(e) => setBranch2(e.target.value)}
+                      >
+                          <option value="">Select Branch 2</option>
+                          {branchOptions.map((option) => (
+                              <option key={option.value} value={option.value}>{option.label}</option>
+                          ))}
+                      </select>
+                  </div>
+              </div>
+                      <div className="text-center mt-3">
+                          <button type="submit" className="btn btn-primary">Compare</button>
+                      </div>
+          </form>
         {collegeData.college1 && collegeData.college2 && (
           <div className="comparison-table">
             <table className="table table-bordered">

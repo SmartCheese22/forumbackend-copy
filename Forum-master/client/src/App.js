@@ -18,6 +18,7 @@ import PostPage from "./components/PostPage";
 import Search from "./components/search.jsx";
 import CollegeCompare from "./components/CollegeCompare.jsx";
 import Home from "./components/Home.jsx";
+import Profile from "./components/Profile.jsx";
 class App extends Component {
   state = {};
   async componentDidMount() {
@@ -53,10 +54,10 @@ class App extends Component {
             path="/post/:id"
             render={(props) => <PostPage {...props} user={this.state.user} />}
           />
-          {/* <Route
+          <Route
             path="/me"
             render={(props) => <Profile {...props} user={this.state.user} />}
-          /> */}
+          />
           <Route exact path="/" component={Home} />
           <Redirect from="/users" to="/users/login " />
           <Redirect to="/not-found" />

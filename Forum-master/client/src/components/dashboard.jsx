@@ -71,7 +71,7 @@ class Dashboard extends Component {
     return (
       <React.Fragment>
         <Jumotron />
-        <div className="container-fluid"> {/* Changed container to container-fluid */}
+        <div className="container-fluid" > {/* Changed container to container-fluid */}
           <div className="row">
             <div className="col">
               <div className="d-flex w-100 justify-content-between m-3">
@@ -80,7 +80,7 @@ class Dashboard extends Component {
                   <button
                     type="button"
                     class="btn btn-success"
-                    style={{ marginBottom: 20 }}
+                    style={{ marginBottom: 20 , backgroundColor: 'rgb(120, 159, 159)'}}
                   >
                     New Post
                   </button>

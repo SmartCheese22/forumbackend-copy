@@ -1,19 +1,27 @@
-/* SearchForm.css */
 /* Custom styles for the search form */
 .search-form {
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    display: flex;
-  }
-  
-  .input-group input {
-    flex-grow: 1;
-    margin-right: 5px;
-  }
-  
-  .input-group button {
-    margin-left: 5px;
-  }
-  
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+}
+
+.input-group input {
+  flex-grow: 1;
+  margin-right: 5px;
+}
+
+.input-group button {
+  margin-left: 5px;
+}
+
+.search-btn {
+  background-color: #488585;
+  border-color: #488585;
+}
+
+.search-btn:hover {
+  background-color: #00524a;
+  border-color: #016467;
+}
