@@ -54,7 +54,7 @@ class PostPage extends Component {
       this.setState({ post: post[0] });
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        toast.error("You can't upvote your own post!");
+        toast.error("You cannot UpVote your own Post!");
       }
     }
   };
@@ -69,7 +69,7 @@ class PostPage extends Component {
       this.setState({ replies: replies });
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        toast.error("You can't upvote your own reply!");
+        toast.error("You cannot UpVote your own Reply!");
       }
     }
   };

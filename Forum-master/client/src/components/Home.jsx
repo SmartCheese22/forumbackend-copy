@@ -178,9 +178,9 @@ function Footer(){
                 <div class="footer-col">
                     <h4>EXAMS</h4>
                     <ul>
-                        <li><a href="#">JEE Mains</a></li>
-                        <li><a href="#">JEE Advanced</a></li>
-                        <li><a href="#">BITSAT</a></li>
+                        <li><a href="https://jeemain.nta.ac.in/">JEE Mains</a></li>
+                        <li><a href="https://www.jeeadv.ac.in/">JEE Advanced</a></li>
+                        <li><a href="https://www.bitsadmission.com/bitsatmain.aspx">BITSAT</a></li>
                         <li><a href="#">Others</a></li>
                     </ul>
                 </div>

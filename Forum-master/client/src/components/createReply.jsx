@@ -1,5 +1,4 @@
 import React from "react";
-import Joi from "joi-browser";
 import {ToastContainer } from "react-toastify";
 import Form from "./common/form";
 import { createreply } from "../services/replyCreateService";
