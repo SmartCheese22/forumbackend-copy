@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const NavBar = ({ user }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: 'rgb(100, 130, 130)' }}>
-  <NavLink className="navbar-brand" to="/">
+  <NavLink className="navbar-brand" to="/" style={{ marginRight: '20px' }}>
     College Pathfinder
   </NavLink>
   <button
@@ -21,32 +21,33 @@ const NavBar = ({ user }) => {
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/" activeClassName="active">
-          Home
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/dashboard" activeClassName="active">
-          Forum
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/users/search" activeClassName="active">
-          Search
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/users/compare" activeClassName="active">
-          Compare
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/users/collegepredictor" activeClassName="active">
-          College Predictor
-        </NavLink>
-      </li>
-    </ul>
+  <li className="nav-item" style={{ marginRight: '20px' }}>
+    <NavLink className="nav-link" to="/" activeClassName="active">
+      Home
+    </NavLink>
+  </li>
+  <li className="nav-item" style={{ marginRight: '20px' }}>
+    <NavLink className="nav-link" to="/dashboard" activeClassName="active">
+      Forum
+    </NavLink>
+  </li>
+  <li className="nav-item" style={{ marginRight: '20px' }}>
+    <NavLink className="nav-link" to="/users/search" activeClassName="active">
+      Search
+    </NavLink>
+  </li>
+  <li className="nav-item" style={{ marginRight: '20px' }}>
+    <NavLink className="nav-link" to="/users/compare" activeClassName="active">
+      Compare
+    </NavLink>
+  </li>
+  <li className="nav-item" style={{ marginRight: '20px' }}>
+    <NavLink className="nav-link" to="/users/collegepredictor" activeClassName="active">
+      College Predictor
+    </NavLink>
+  </li>
+</ul>
+
     <ul className="navbar-nav ml-auto">
       {!user ? (
         <>
