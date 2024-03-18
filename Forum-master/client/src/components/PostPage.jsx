@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import http from "../services/httpService";
 import { api } from "../config.js";
 import PostReply from "./createReply";
+import "./PostPage.css";
 
 class PostPage extends Component {
   state = {
@@ -81,9 +82,11 @@ class PostPage extends Component {
         <ToastContainer />
         <div className="container col-lg-6 shadow-lg p-3 mt-5 bg-body rounded">
           <h2>{post.title}</h2>
-          <p className="mt-4" style={{ color: "#505050" }}>
-            {post.description}
-          </p>
+          <div className="post-description">
+            <p className="mt-4" style={{color: "#ffff0", fontSize: "17px" }}>
+              {post.description}
+            </p>
+          </div>
           <div className="mt-1">
             Related Topics:
             {post.tags &&
@@ -159,6 +162,7 @@ class PostPage extends Component {
       </div>
     );
   }
+  
 }
 
 export default PostPage;

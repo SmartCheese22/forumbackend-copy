@@ -5,7 +5,9 @@ import "../App.css";
 import Input from "../components/common/input";
 import Form from "./common/form";
 import { login } from "../services/authService";
-import './log.css'
+import './log.css';
+import LoginImage from "./images/1.jpg";
+import Logo from "./images/logo.jpg";
 
 // use programmatic navigation form login form to dashboard
 
@@ -40,38 +42,46 @@ class Log extends Form {
     }
     const { data, errors } = this.state;
     return (
-      <div className="login-container">
-        <div className="container col-lg-3 col-md-6 border rounded mt-3">
-          <h1 className="p-3">Login</h1>
+      <div className="login-main">
+        <div className="login-left" alt="logo">
+          <div className="login-left-top">
+            <img src={Logo} />
+            <h1> College PathFinder</h1>
+            <p>Empowering Futures, Guiding Paths : College PathFinder- Your Journey, Your Choice.</p>
+          </div>
+          <div className="login-left-bottom">
+            <img className="login-image" src={LoginImage} alt="illustration" />
+          </div>
+        </div>
+        <div className="login-right">
+            <h1 className="login-right-heading">Login</h1>
 
-          <form onSubmit={this.handleSubmit}>
-            <Input
-              name="email"
-              value={data.email}
-              label="Email ID"
-              onChange={this.handleChange}
-              error={errors.email}
-            />
-            <Input
-              name="password"
-              value={data.password}
-              label="Password"
-              onChange={this.handleChange}
-              error={errors.password}
-              type="password"
-            />
-            <div className="text-center">
-              <button
-                className="btn btn-primary m-3"
-              >
-                Login
-              </button>
+            <form onSubmit={this.handleSubmit} className="mb-3">
+              <Input
+                name="email"
+                value={data.email}
+                label="Email ID"
+                onChange={this.handleChange}
+                error={errors.email}
+              />
+              <Input
+                name="password"
+                value={data.password}
+                label="Password"
+                onChange={this.handleChange}
+                error={errors.password}
+                type="password"
+              />
+              <div className="text-center">
+                <button>
+                  Login
+                </button>
+              </div>
+            </form>
+            <div >
+              New User? <Link to="/users/register">Register Here</Link>
             </div>
-          </form>
-        </div>
-        <div className="container col-lg-3 col-md-6 border rounder mt-1 p-3 text-center">
-          New User? <Link to="/users/register">Register Here</Link>
-        </div>
+        </div >
         <ToastContainer />
       </div>
     );
