@@ -41,6 +41,11 @@ const NavBar = ({ user }) => {
           Compare
         </NavLink>
       </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/users/collegepredictor" activeClassName="active">
+          College Predictor
+        </NavLink>
+      </li>
     </ul>
     <ul className="navbar-nav ml-auto">
       {!user ? (
