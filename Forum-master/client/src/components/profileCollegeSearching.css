@@ -7,8 +7,8 @@
 .profile{
     margin-top: 30px;
     display:grid;
-    grid-template-columns: 2fr 5fr;
     column-gap: 50px;
+    margin-right:20px;
     background-color: ivory;
 }
 

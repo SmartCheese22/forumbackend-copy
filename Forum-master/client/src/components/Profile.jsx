@@ -1,31 +1,39 @@
 import React from 'react';
 import CollegeGoingProfile from './profileCollegeGoing';
 import CollegeSearchingProfile from './profileCollegeSearching';
+import { NavLink } from "react-router-dom";
 
-const Profile = ({userData}) => {
+const Profile = ({user}) => {
   return (
       <div>
-          
-        <ShowProfile userData={userData} />
-  </div>
+        <ShowProfile user={user}/>
+      </div>
   );
 };
 
-function ShowProfile({ userData }) {
-
-  if (userData.userType === "collegeG") {
-     return (
+function ShowProfile({ user}) {
+  if (user && user.userType) {
+    if (user.userType === "collegeG") {
+      return (
         <div>
-            <CollegeGoingProfile />
+          <CollegeGoingProfile user={ user } />
         </div>
       );
-  } else if (userData.userType === "collegeS") {
-     return (
+    } else if (user.userType === "collegeS") {
+      return (
         <div>
-            <CollegeSearchingProfile userData={{userData}}/>
+          <CollegeSearchingProfile user={ user}/>
         </div>
       );
+    }
   }
+
+  // If user object or userType is missing, render a fallback message or component
+  return (
+    <div>
+      <p>User data not available or userType not specified.</p>
+    </div>
+  );
 }
 
 export default Profile;
