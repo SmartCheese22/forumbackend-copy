@@ -2,19 +2,13 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const config = require("config");
 const _ = require("lodash");
-const Joi = require("joi");
 const { User, validates, validateUser } = require("../models/user");
 const College = require("../models/college");
 const auth = require("../middleware/auth");
-const isAdmin = require("../middleware/admin");
-const { valid } = require("joi");
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
-  // const { error } = validateUser(req.body);
-  // if (error) return res.status(400).send(error.details[0].message);
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered");
   user = new User({
@@ -112,9 +106,6 @@ router.get("/me", auth, async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  // const { error } = validates(req.body);
-  // if (error) return res.status(400).send(error.details[0].message);
-
   if (req.user) return res.send("User already logged in!");
   let user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(400).send("Invalid email or password");

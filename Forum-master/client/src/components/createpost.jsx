@@ -12,11 +12,6 @@ class NewPost extends Form {
     errors: { title: "", description: "", tags: [] },
     tags: [],
   };
-  // schema = {
-  //   title: Joi.string().required().min(10).label("Title"),
-  //   description: Joi.string().required().min(5).label("Description"),
-  //   tags: Joi.array(),
-  // };
   handleTagChange = (tagID) => {
     console.log("hello");
     let data = this.state.data;
@@ -80,9 +75,6 @@ class NewPost extends Form {
                   id="description"
                   className="form-control"
                 />
-                {/* {errors.description && (
-                  <div className="alert-info">{errors.description}</div>
-                )} */}
               </div>
               <div className="form-group">
                 <label htmlFor="tags">Related Tags</label>
@@ -105,7 +97,6 @@ class NewPost extends Form {
               <div className="text-center">
                 <button
                   className="btn btn-primary mt-4"
-                  // disabled={this.validate()}
                 >
                   Submit
                 </button>
